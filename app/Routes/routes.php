@@ -25,8 +25,9 @@ $router->post('resetar-senha', [AuthController::class, 'resetPassword']);
 /**
  * --- ROTAS DE PÁGINAS ESTÁTICAS ---
  */
-$router->get('', [PageController::class, 'index']);
-$router->get('home', [PageController::class, 'index']);
+// CORREÇÃO: Alterado de 'index' para 'home', que é o método que existe no PageController
+$router->get('', [PageController::class, 'home']);
+$router->get('home', [PageController::class, 'home']);
 $router->get('planos', [PageController::class, 'plans']);
 
 // Rota 404 de fallback (usando GET na última posição)
