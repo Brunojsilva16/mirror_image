@@ -11,8 +11,8 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 // O 'index.php' agora está em /public_html/app.assistaconecta.com.br/
 // O ROOT_PATH (onde estão 'app' e 'vendor') está dois níveis acima.
 // Usamos dirname(__DIR__, 2) para subir dois diretórios.
-define('ROOT_PATH', dirname(__DIR__, 1));
-echo ROOT_PATH . "<br>";
+define('ROOT_PATH', dirname(__DIR__));
+// REMOVIDO: echo ROOT_PATH . "<br>";
 
 use App\Core\Router;
 
@@ -30,7 +30,7 @@ define("VIEWS_PATH", ROOT_PATH . '/app/views');
 // Define o caminho ABSOLUTO para a pasta pública da aplicação (esta pasta)
 // Usaremos isso para uploads e verificações de file_exists()
 define("PUBLIC_APP_PATH", __DIR__);
-echo PUBLIC_APP_PATH;
+// REMOVIDO: echo PUBLIC_APP_PATH;
 
 // =======================
 // Autoload (Composer)
@@ -56,3 +56,4 @@ $url    = $_GET['url'] ?? '/';
 $method = $_SERVER['REQUEST_METHOD'];
 
 $router->dispatch($url, $method);
+// REMOVIDO: '}' extra que estava aqui
